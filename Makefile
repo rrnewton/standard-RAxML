@@ -1,1 +1,1 @@
-Makefile.SSE3.PTHREADS.gcc
+Makefile.PTHREADS.gcc

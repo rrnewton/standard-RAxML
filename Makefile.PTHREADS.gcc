@@ -3,11 +3,12 @@
 
 CC = gcc 
 
+# RRN: Hacking here [2014.07.29]:
+CFLAGS = $(MORECFLAGS) -D_GNU_SOURCE -fomit-frame-pointer -funroll-loops -O2  -D_USE_PTHREADS -msse 
+#-Wall -Wunused-parameter -Wredundant-decls  -Wreturn-type  -Wswitch-default -Wunused-value -Wimplicit  -Wimplicit-function-declaration  -Wimplicit-int -Wimport  -Wunused  -Wunused-function  -Wunused-label -Wno-int-to-pointer-cast -Wbad-function-cast  -Wmissing-declarations -Wmissing-prototypes  -Wnested-externs  -Wold-style-definition -Wstrict-prototypes  -Wpointer-sign -Wextra -Wredundant-decls -Wunused -Wunused-function -Wunused-parameter -Wunused-value  -Wunused-variable -Wformat  -Wformat-nonliteral -Wparentheses -Wsequence-point -Wuninitialized -Wundef -Wbad-function-cast
 
-CFLAGS = -D_GNU_SOURCE -fomit-frame-pointer -funroll-loops -O2  -D_USE_PTHREADS -msse #-Wall -Wunused-parameter -Wredundant-decls  -Wreturn-type  -Wswitch-default -Wunused-value -Wimplicit  -Wimplicit-function-declaration  -Wimplicit-int -Wimport  -Wunused  -Wunused-function  -Wunused-label -Wno-int-to-pointer-cast -Wbad-function-cast  -Wmissing-declarations -Wmissing-prototypes  -Wnested-externs  -Wold-style-definition -Wstrict-prototypes  -Wpointer-sign -Wextra -Wredundant-decls -Wunused -Wunused-function -Wunused-parameter -Wunused-value  -Wunused-variable -Wformat  -Wformat-nonliteral -Wparentheses -Wsequence-point -Wuninitialized -Wundef -Wbad-function-cast
-
-
-LIBRARIES = -lm -pthread
+# RRN: Hacking here [2014.07.29]:
+LIBRARIES = -lm -pthread $(MORELIBS)
 
 RM = rm -f
 
