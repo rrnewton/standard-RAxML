@@ -1,7 +1,7 @@
 # Makefile August 2006 by Alexandros Stamatakis
 # Makefile cleanup October 2006, Courtesy of Peter Cordes <peter@cordes.ca>
 
-CC = gcc 
+CC = icc 
 
 # RRN: Hacking here [2014.07.29]:
 CFLAGS = $(MORECFLAGS) -D_GNU_SOURCE -fomit-frame-pointer -funroll-loops -O2  -D_USE_PTHREADS -msse 

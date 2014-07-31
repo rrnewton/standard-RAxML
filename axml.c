@@ -13076,3 +13076,5 @@ int main (int argc, char *argv[])
 }
 
 
+// HACK: Defined here, declared in axml.h
+int global_x = 0;

@@ -221,3 +221,4 @@ volatile char             *barrierBuffer;
 volatile branchInfo      **branchInfos;
 pthread_mutex_t          mutex;
 #endif
+

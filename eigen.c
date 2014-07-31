@@ -32,6 +32,7 @@
 #include <math.h>
 #include <assert.h>
 
+extern int global_x;
 
 static void mytred2(double **a, const int n, double *d, double *e)
 {

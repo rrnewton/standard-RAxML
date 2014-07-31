@@ -1633,4 +1633,5 @@ void newviewGTRCATPROT_AVX(int tipCase, double *extEV,
 #endif
 
 
-
+// RRN: Hack for the notify-intrinsic business.
+extern int global_x;
