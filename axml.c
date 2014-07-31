@@ -49,6 +49,23 @@
 #include <limits.h>
 #include <inttypes.h>
 
+#ifdef MAKE_TAU_HAPPY
+#define LONG_MAX 2147483647
+#define _MM_FLUSH_ZERO_ON 0
+#else 
+  #if ! (defined(__ppc) || defined(__powerpc__) || defined(PPC))
+  #include <xmmintrin.h>
+  /*
+    special bug fix, enforces denormalized numbers to be flushed to zero,
+    without this program is a tiny bit faster though.
+    #include <emmintrin.h> 
+    #define MM_DAZ_MASK    0x0040
+    #define MM_DAZ_ON    0x0040
+    #define MM_DAZ_OFF    0x0000
+  */
+  #endif
+#endif
+
 #if (defined(_WAYNE_MPI) || defined (_QUARTET_MPI))
 #include <mpi.h>
 #endif
@@ -60,17 +77,6 @@
 
 #endif
 
-#if ! (defined(__ppc) || defined(__powerpc__) || defined(PPC))
-#include <xmmintrin.h>
-/*
-  special bug fix, enforces denormalized numbers to be flushed to zero,
-  without this program is a tiny bit faster though.
-  #include <emmintrin.h> 
-  #define MM_DAZ_MASK    0x0040
-  #define MM_DAZ_ON    0x0040
-  #define MM_DAZ_OFF    0x0000
-*/
-#endif
 
 #include "axml.h"
 #include "globalVariables.h"

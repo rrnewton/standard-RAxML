@@ -64,6 +64,12 @@ extern int processes;
 
 #define _NEW_MRE
 
+
+#ifdef MAKE_TAU_HAPPY
+#define UINT_MAX 2147483647
+#define INT_MAX 2147483647
+#endif
+
 extern FILE *INFILE;
 extern char run_id[128];
 extern char workdir[1024];

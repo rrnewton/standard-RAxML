@@ -41,6 +41,11 @@
 #include <limits.h>
 #include "axml.h"
 
+// RRN hacking:
+#ifdef MAKE_TAU_HAPPY
+#define INT_MAX 2147483647
+#endif
+
 #ifdef __SIM_SSE3
 
 #include <stdint.h>

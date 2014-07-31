@@ -1,6 +1,17 @@
+
+
 #include "rmqs.h"
 #include "axml.h"
 #include <assert.h>
+
+#ifdef MAKE_TAU_HAPPY
+#define INT_MIN 214748364
+#define INT_MAX 214748364
+static const DT minus_infinity = 999;
+#else
+static const DT minus_infinity = INT_MIN;
+#endif
+
 
 static const DTidx Catalan[17][17] = {
 	{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -21,8 +32,6 @@ static const DTidx Catalan[17][17] = {
 	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,9694845,35357670},
 	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,35357670}
 };
-
-static const DT minus_infinity = INT_MIN;
 
 static const char LSBTable256[256] = 
 	{
