@@ -49,6 +49,10 @@
 #include <limits.h>
 #include <inttypes.h>
 
+#ifdef DYNAPROF
+#include "dynaprof.h"
+#endif
+
 #ifdef MAKE_TAU_HAPPY
 #define LONG_MAX 2147483647
 #define _MM_FLUSH_ZERO_ON 0
@@ -12602,6 +12606,14 @@ static void predictMissingSequence(tree *tr, analdef *adef)
 
 int main (int argc, char *argv[])
 {
+
+#ifdef DYNAPROF
+  printf("[raxml-hacked] Starting dynaprof profiling...\n");
+  start_profiler();
+  //  printf("[raxml-hacked] NOT starting dynaprof...\n");
+#endif
+
+
 #if (defined(_WAYNE_MPI) || defined (_QUARTET_MPI))
   MPI_Init(&argc, &argv);
   MPI_Comm_rank(MPI_COMM_WORLD, &processID);
@@ -13071,6 +13083,11 @@ int main (int argc, char *argv[])
       MPI_Finalize();
 #endif
   }
+
+#ifdef DYNAPROF
+  printf("[raxml-hacked] calling dynaprof cleanup manually...\n");
+  cleanup();
+#endif
 
   return 0;
 }

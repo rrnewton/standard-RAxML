@@ -3429,7 +3429,8 @@ double evaluateIterative(tree *tr,  boolean writeVector)
 	      	  
 	      if(tr->useFastScaling)		    	      		      
 		partitionLikelihood += (tr->partitionData[model].globalScaler[pNumber] + tr->partitionData[model].globalScaler[qNumber]) * LOG(minlikelihood);		    
-	      
+
+	      // RRN: seeing failures here ONLY with dynaprof on... weird
 	      assert(partitionLikelihood < 0.0);
 #ifdef _USE_PTHREADS
 	      if(tr->partitionData[model].ascBias && tr->threadID == 0)
